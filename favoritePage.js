@@ -1,29 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const favoriteButtons = document.querySelectorAll('.btn-favorite');
-  
-    favoriteButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const projectElement = button.closest('.list-item');
-        const title = projectElement.querySelector('.title').innerText;
-        const description = projectElement.querySelector('.description-project').innerText;
-        const imageSrc = projectElement.querySelector('img').getAttribute('src');
-  
-        const project = { title, description, imageSrc };
-  
-        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-  
-        if (!favorites.find(fav => fav.title === project.title)) {
-          favorites.push(project);
-          localStorage.setItem('favorites', JSON.stringify(favorites));
-          alert('Projeto adicionado aos favoritos!');
-        } else {
-          alert('Este projeto já foi favoritado.');
-        }
-      });
-    });
-  });
-  
-  
   document.addEventListener('DOMContentLoaded', function() {
     const favoritesContainer = document.getElementById('container-projects');
     favoritesContainer.innerHTML = '';
